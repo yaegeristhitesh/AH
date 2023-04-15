@@ -10,19 +10,21 @@
 #include <iostream>
 #include <stdio.h>
 #include <cmath>
+#include <stdbool.h>
 using namespace std;
 class vec{
-    int dim=-1;//dimension of vectors
-    int num=-1;//number of vectors
-    bool check = false;
+    private:
+    int dim;//dimension of vectors
+    int num;//number of vectors
+    bool check;
     double**data;
     public:
     vec(int a,int b):dim(a),num(b){}
-    vec() = default;
-    int set_dimension(int a){dim =a;}
-    int set_number(int a){num =a;}
+    vec(){};
+    void set_dimension(int a){dim =a;check = false;}
+    void set_number(int a){num =a;check = false;}
     void make_space(){
-        if(num >0 && dim >0 && check = false){
+        if(num >0 && dim >0 && check == false){
             data = (double**)malloc(num*sizeof(double*));
             check = true;
             for(int i=0;i<num;i++){ data[i] = (double*)malloc(dim*sizeof(double));}
@@ -43,7 +45,7 @@ class vec{
     double dot(int i,int j){
         double value =0.0;
         for(int t=0;t<num;t++)
-            value += data[i][t].data[j].[t];
+            value += data[i][t]*(data[j][t]);
         return value;
     }
 };
