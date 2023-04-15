@@ -1,22 +1,73 @@
-//
-//  Vector_class.h
-//  New
-//
-//  Created by Hitesh Choudhary on 15/04/23.
-//
-
-#ifndef Vector_class_h
-#define Vector_class_h
+#pragma once
+#ifndef Vector_class
+#define Vector_class
 #include <iostream>
-#include <stdio.h>
-#include <cmath>
-#include <stdbool.h>
-using namespace std;
-class vec{
-    private:
-    int n;
-    double d[n];
-    
+
+class Vector{
+private:
+
+    int dim;        //Dimensions in the vector
+
+    double* vec;  //Vector
+
+public:
+
+    /*
+    Default Constructor
+    */
+    Vector() = default;
+
+    /*
+    Constructor
+    @param dimension: Dimension
+    */
+    Vector(int dimension);
+
+    /*
+    Copy Constructor
+    @param &vector: reference to a vector
+    */
+    Vector(Vector &vector);
+
+    /*
+    Takes input for the vector elements from terminal
+    */
+    void inputTerminal();
+
+    /*
+    Prints the vector elements to terminal
+    */
+    void printTerminal();
+
+    /*
+    Returns eucledian norm of the vector
+    */
+    double norm();
+
+    /*
+    Overload of the + operator
+    */
+    Vector operator +(Vector vector);
+
+
+    /*
+    Overload of the - operator
+    */
+    Vector operator -(Vector vector);
+
+    /*
+    Gives dot product
+    @param vector: Second vector 
+    */
+   double dot(Vector vector);
+
+   /*
+   Overload of * operator
+   Gives scalar multiple
+   */
+    Vector operator* (double num); 
+
+
 };
 
-#endif /* Vector_class_h */
+#endif
