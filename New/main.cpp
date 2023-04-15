@@ -1,11 +1,10 @@
 #include <iostream>
+#include "Vector_class.h"
 using namespace std;
-class vec{
-    int dim;//dimension of vectors
-    int num;//number of vectors
-    double**data;
-    public:
-    vec(int a,int b):dim(a),num(b){}
-    vec() = default;
-    
-};
+
+
+int main(){
+    Vector temp(3);
+    temp.inputTerminal();
+    temp.printTerminal();
+}
